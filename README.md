@@ -23,14 +23,14 @@ I want to grab each of these images and turn them into a time-lapse movie of the
 url="https://www.ncl.com/shipcams/bawaycam/fullsize.jpg"
 sec=30
 
-for (( ; ; ))						# forever
+for (( ; ; ))                       # forever
 do
-	d="$(date -u +%Y%m%d_%H%M%S)"	# now "20181225_123456" (UTC)
-	n="${d}.jpg"					# image file name & extension
-	curl -o "$n" "$url"				# grab from $url, save as $n
-	m="$(md5 -q "$n")"				# calculate MD5 has of image
-	mv "$n" "$d-$m.jpg"				# put hash value in filename
-	sleep "$sec"					# wait a while to grab again
+    d="$(date -u +%Y%m%d_%H%M%S)"   # now "20181225_123456" (UTC)
+    n="${d}.jpg"                    # image file name & extension
+    curl -o "$n" "$url"             # grab from $url, save as $n
+    m="$(md5 -q "$n")"              # calculate MD5 has of image
+    mv "$n" "$d-$m.jpg"             # put hash value in filename
+    sleep "$sec"                    # wait a while to grab again
 done
 ```
 
@@ -68,18 +68,18 @@ So, for whichever combination of reasons, we need to identify duplicates and thr
 # Process a directory of images named TIMESTAMP-MD5HASH.xxx and throw
 # away all but one of each MD5 hash.
 # ---------------------------------------------------------------------
-for f in *.jpg					# iterate over all the image files
+for f in *.jpg                  # iterate over all the image files
 do
-	parts=(${f//-/ })			# MD5 hash in filename follows '-'
-	i=0							# always start at the beginning...
-	for g in *${parts[1]}		# for all files with the same MD5
-	do
-		if (( i != 0 )) ; then 	# if not the first (or only) match
-			mv "$g" ~/.Trash/	# move the duplicate to the trash
-			echo -n 'X'			# give the human some feedback
-		fi
-		((i++))					# focus on the next match
-	done
+    parts=(${f//-/ })           # MD5 hash in filename follows '-'
+    i=0                         # always start at the beginning...
+    for g in *${parts[1]}       # for all files with the same MD5
+    do
+        if (( i != 0 )) ; then  # if not the first (or only) match
+            mv "$g" ~/.Trash/   # move the duplicate to the trash
+            echo -n 'X'         # give the human some feedback
+        fi
+        ((i++))                 # focus on the next match
+    done
 done
 ```
 
@@ -117,12 +117,12 @@ The following script uses the [ImageMagic](https://www.imagemagick.org/) `identi
 #
 # Requires ImageMagick's "identify" command.
 # ---------------------------------------------------------------------
-for f in *.jpg						# iterate over all the image files
+for f in *.jpg                      # iterate over all the image files
 do
-	if ! identify -verbose "$f" >/dev/null ; then
-		mv "$g" ~/.Trash/			# move corrupt to the trash
-		echo -n 'X'					# give the human some feedback
-	fi
+    if ! identify -verbose "$f" >/dev/null ; then
+        mv "$g" ~/.Trash/           # move corrupt to the trash
+        echo -n 'X'                 # give the human some feedback
+    fi
 done
 ```
 
