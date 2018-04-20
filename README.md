@@ -134,6 +134,8 @@ Use ImageMagic's `convert` command to assemble the stills into a video:
 
 `convert -delay 5 -quality 100 *.jpg output.mpg`
 
+Which will result in something like the following. If you don't love the result please deep-dive into ImageMagick's documentation; to say it's versatile is an understatement. Remember, though, that the video will never be better quality than the webcam provides, and some of them are low-resolution indeed.
+
 [![Video from stills](./images/panama_locks_youtube_screenshot.png)](https://www.youtube.com/watch?v=JVvjriBBNhs "Through the Panama Canal on the Island Princess")
 
 My other webcam-to-movie captures:
