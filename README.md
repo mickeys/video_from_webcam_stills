@@ -68,17 +68,17 @@ So, for whichever combination of reasons, we need to identify duplicates and thr
 # Process a directory of images named TIMESTAMP-MD5HASH.xxx and throw
 # away all but one of each MD5 hash.
 # ---------------------------------------------------------------------
-for f in *.jpg						# iterate over all the image files
+for f in *.jpg					# iterate over all the image files
 do
-	parts=(${f//-/ })				# MD5 hash in filename follows '-'
-	i=0								# always start at the beginning...
-	for g in *${parts[1]}			# for all files with the same MD5
+	parts=(${f//-/ })			# MD5 hash in filename follows '-'
+	i=0							# always start at the beginning...
+	for g in *${parts[1]}		# for all files with the same MD5
 	do
-		if (( i != 0 )) ; then 		# if not the first (or only) match
-			mv "$g" ~/.Trash/		# move the duplicate to the trash
-			echo -n 'X'				# give the human some feedback
+		if (( i != 0 )) ; then 	# if not the first (or only) match
+			mv "$g" ~/.Trash/	# move the duplicate to the trash
+			echo -n 'X'			# give the human some feedback
 		fi
-		((i++))						# focus on the next match
+		((i++))					# focus on the next match
 	done
 done
 ```
