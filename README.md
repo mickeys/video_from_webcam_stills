@@ -134,7 +134,9 @@ Use ImageMagic's `convert` command to assemble the stills into a video:
 
 `convert -delay 5 -quality 100 *.jpg output.mpg`
 
-You can see my other webcam-to-movie captures:
+[![Video from stills](i/images/panama_locks_youtube_screenshot.png)](https://www.youtube.com/watch?v=JVvjriBBNhs "Through the Panama Canal on the Island Princess")
+
+My other webcam-to-movie captures:
 
 * [Through the Panama Canal on the Island Princess](https://www.youtube.com/watch?v=JVvjriBBNhs)
 * [14 ¼ hours at Puntarena, Costa Rica, in 38 seconds](https://www.youtube.com/watch?v=6JSYjEm7ROc)
